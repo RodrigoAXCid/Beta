@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<a class="btn btn-primary" href="{% url 'pessoa:novo' %}">Novo</a>
+<a class="btn btn-outline-primary" href="{% url 'pessoa:novo' %}"><i class="fa-solid fa-plus"></i></a>
 
 <table class="table">
     <tr>
@@ -10,6 +10,7 @@
         <th>Idade</th>
         <th>NIF</th>
         <th>E-mail</th>
+        <th></th>
     </tr>
     {% for object in object_list %}
 
@@ -18,6 +19,7 @@
             <td>{{ object.idade }}</td>
             <td>{{ object.nif }}</td>
             <td>{{ object.email }}</td>
+            <td><a class="btn btn-outline-primary" href="{% url 'pessoa:detalhe' object.id %}"><i class="fa-solid fa-eye"></i></a></td>
         </tr>
 
     {% endfor %}
