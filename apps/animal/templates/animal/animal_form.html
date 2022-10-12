@@ -3,10 +3,24 @@
 
 {% block content %}
 <div class="content-section">
+    <h3>Animal</h3>
+    <hr>
     <form method="POST">
         {% csrf_token %}
-
-        {{ form|crispy }}
+        <div class="row">
+            <div class="col-12 col-md-3">
+                {{ form.nome|as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-3">
+                {{ form.especie|as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-3">
+                {{ form.idade|as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-3">
+                {{ form.pessoa|as_crispy_field }}
+            </div>
+        </div>
         <br>
         <button class="btn btn-outline-primary" type="submit">Criar</button>
         <a class="btn btn-outline-danger" href="{% url 'animal:lista' %}">Voltar</a>

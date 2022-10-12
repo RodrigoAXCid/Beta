@@ -3,9 +3,9 @@
 
 {% block content %}
 <div class="content-section">
+    <h3>Animal</h3>
+    <hr>
     <form method="POST">
-        <h3>Pessoa</h3>
-        <hr>
         {% csrf_token %}
         <div class="row">
             <div class="col-12 col-md-4">
@@ -15,18 +15,12 @@
                 {{ form.idade|as_crispy_field }}
             </div>
             <div class="col-12 col-md-4">
-                {{ form.nif|as_crispy_field }}
-            </div>
-            <div class="col-12 col-md-6">
-                {{ form.email|as_crispy_field }}
-            </div>
-            <div class="col-12 col-md-6">
-                {{ form.cc|as_crispy_field }}
+                {{ form.pessoa|as_crispy_field }}
             </div>
         </div>
         <br>
-        <button class="btn btn-outline-primary" type="submit">Criar</button>
-        <a class="btn btn-outline-danger" href="{% url 'pessoa:lista' %}">Voltar</a>
+        <button class="btn btn-outline-primary" type="submit">Guardar</button>
+        <a class="btn btn-outline-danger" href="{% url 'animal:detalhe' object.id %}">Voltar</a>
     </form>
 </div>
 {% endblock %}
